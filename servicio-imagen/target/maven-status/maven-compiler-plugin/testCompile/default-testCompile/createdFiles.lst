@@ -1,0 +1,3 @@
+com\arquitectura\hexagonal\administracion\infraestructura\controlador\ImagenControllerTest.class
+com\arquitectura\hexagonal\dominio\ImagenServiceTest.class
+com\arquitectura\hexagonal\testUtilidades\Datos.class

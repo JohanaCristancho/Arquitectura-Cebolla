@@ -1,0 +1,3 @@
+com\arquitectura\hexagonal\dominio\PersonaServiceTest.class
+com\arquitectura\hexagonal\administracion\infraestructura\controlador\PersonaControllerTest.class
+com\arquitectura\hexagonal\testUtilidades\Datos.class

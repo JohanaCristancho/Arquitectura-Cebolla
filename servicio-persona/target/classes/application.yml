@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/etapa_monolitico
+    username: root
+    password: Ejcc0000
+  main:
+    allow-bean-definition-overriding: false
+
+
+feign:
+  modulo:
+    imagen: ${URL_MODULO_PRODUCTO:localhost:8090}
+
+
+

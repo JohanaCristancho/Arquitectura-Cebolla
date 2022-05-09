@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SavePersonaService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">aquitectura-limpia</a> &gt; <a href="index.source.html" class="el_package">com.arquitectura.hexagonal.administracion.dominio.servicio</a> &gt; <span class="el_source">SavePersonaService.java</span></div><h1>SavePersonaService.java</h1><pre class="source lang-java linenums">package com.arquitectura.hexagonal.administracion.dominio.servicio;
+
+import com.arquitectura.hexagonal.administracion.dominio.excepciones.PersonaDuplicadaExcepcion;
+import com.arquitectura.hexagonal.administracion.dominio.modelo.Persona;
+import com.arquitectura.hexagonal.administracion.dominio.repositorio.PersonaRepositorioPort;
+
+/**
+ * @author johana 31/03/2022
+ */
+
+public class SavePersonaService {
+
+    private final PersonaRepositorioPort personaRepositorioPort;
+
+<span class="fc" id="L15">    public SavePersonaService(PersonaRepositorioPort personaRepositorioPort) {</span>
+<span class="fc" id="L16">        this.personaRepositorioPort = personaRepositorioPort;</span>
+<span class="fc" id="L17">    }</span>
+
+    public Persona registrarPersona(Persona persona) {
+<span class="fc" id="L20">        validarPersonaExisteConNumeroCedula(persona.getDocumento());</span>
+<span class="fc" id="L21">        return personaRepositorioPort.savePersona(persona);</span>
+    }
+
+    public void validarPersonaExisteConNumeroCedula(String documento) {
+<span class="fc" id="L25">        Persona personaExiste = personaRepositorioPort.findByDocumento(documento);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (personaExiste != null) {</span>
+<span class="fc" id="L27">            throw new PersonaDuplicadaExcepcion(&quot;El documento &quot; + documento + &quot; que intenta registar ya esta asociada a otra persona&quot;);</span>
+        }
+<span class="fc" id="L29">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
